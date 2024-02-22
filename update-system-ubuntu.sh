@@ -15,3 +15,6 @@ sudo apt-get update
 echo "apt-get update | executed successfully"
 sudo apt-get install -y wget
 echo "wget | installed successfully"
+
+# add neofetch to bashrc for fun
+echo 'neofetch' >> ~/.bashrc
