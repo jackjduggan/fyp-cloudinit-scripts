@@ -10,7 +10,7 @@ sudo dpkg -i puppet-release-bionic.deb
 echo "puppet-release-bionic.deb | unpacked successfully"
 
 # install puppet agent
-sudo apt-get install puppet
+sudo apt-get install -y puppet
 echo "puppet | installed successfully"
 
 # add puppet master ip address and dns name to /etc/hosts
