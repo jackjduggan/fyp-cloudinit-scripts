@@ -19,5 +19,5 @@ echo "wget | installed successfully"
 # add neofetch to bashrc for fun
 sudo apt-get install -y neofetch
 echo "neofetch | installed successfully"
-echo 'neofetch' >> ~/.bashrc
+sudo echo 'neofetch' >> ~/.bashrc
 echo "neofetch | added to ~/.bashrc successfully"
