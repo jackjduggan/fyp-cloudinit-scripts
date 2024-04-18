@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Write to /tmp/script_executed.txt for debugging purposes
+echo "Script executed on $(date)" >> /tmp/script_executed.txt
+echo "Debug file created at /tmp/script_executed.txt"
+
 ##### Installation #####
 # get the puppet package from repo
 wget https://apt.puppetlabs.com/puppet-release-bionic.deb
