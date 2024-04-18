@@ -14,10 +14,8 @@ sudo apt-get install -y puppet
 echo "puppet | installed successfully"
 
 # add puppet master ip address and dns name to /etc/hosts
-#ip_address="$1"
-ip_address="123.456.78.90"
-#dns_name="$2"
-dns_name="test"
+ip_address="54.165.60.58" # 18/04 - test1
+dns_name="puppet"
 
 echo "$ip_address $dns_name" >> /etc/hosts
 echo "Entry added to /etc/hosts: $ip_address $dns_name"
@@ -26,4 +24,10 @@ echo "Entry added to /etc/hosts: $ip_address $dns_name"
 sudo systemctl start puppet
 sudo systemctl enable puppet
 
-# ! at this point, this puppet agent will have sent a cert request to puppet master
+# Wait for the Puppet master to automatically sign the certificate
+echo "Waiting for the Puppet master to sign the certificate..."
+sleep 30
+
+# Run puppet agent to apply the initial configuration
+sudo puppet agent --test
+echo "Puppet agent run | Completed successfully."
