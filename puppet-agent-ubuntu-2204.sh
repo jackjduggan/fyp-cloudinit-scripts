@@ -18,8 +18,7 @@ sudo apt-get install -y puppet
 echo "puppet | installed successfully"
 
 # add puppet master ip address and dns name to /etc/hosts
-#ip_address="54.165.60.58" # 18/04 - test1
-ip_address="54.226.223.234" #19/04 - full-test-1
+ip_address="100.27.65.226" #eip
 dns_name="puppet"
 
 echo "$ip_address $dns_name" >> /etc/hosts
