@@ -40,12 +40,12 @@ while [ $success -eq 0 ] && [ $attempts -lt 10 ]; do
         echo "Puppet agent run | Completed successfully."
         success=1
     else
-        echo "Puppet agent run failed, retrying in 30 seconds..."
+        echo "Puppet agent run  | Failed, retrying in 30 seconds..."
         sleep 30
         attempts=$((attempts+1))
     fi
 done
 
 if [ $success -eq 0 ]; then
-    echo "Puppet agent failed to apply configuration after several attempts."
+    echo "Failed to apply Puppet agent configuration. Cancelling..."
 fi
