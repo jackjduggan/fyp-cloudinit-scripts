@@ -30,8 +30,22 @@ sudo systemctl enable puppet
 
 # Wait for the Puppet master to automatically sign the certificate
 echo "Waiting for the Puppet master to sign the certificate..."
-sleep 30
 
-# Run puppet agent to apply the initial configuration
-sudo puppet agent --test
-echo "Puppet agent run | Completed successfully."
+# Loop to wait for the Puppet agent to successfully apply the configuration
+success=0
+attempts=0
+while [ $success -eq 0 ] && [ $attempts -lt 10 ]; do
+    sudo puppet agent --test
+    if [ $? -eq 0 ]; then
+        echo "Puppet agent run | Completed successfully."
+        success=1
+    else
+        echo "Puppet agent run failed, retrying in 30 seconds..."
+        sleep 30
+        attempts=$((attempts+1))
+    fi
+done
+
+if [ $success -eq 0 ]; then
+    echo "Puppet agent failed to apply configuration after several attempts."
+fi
